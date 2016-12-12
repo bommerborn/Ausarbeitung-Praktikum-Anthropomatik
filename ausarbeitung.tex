@@ -1,0 +1,37 @@
+\documentclass[cover]{isas-seminar}
+
+\usepackage{subfigure}
+\usepackage{booktabs}
+\usepackage{subfiles}
+\usepackage{graphicx}
+
+% Hier die Art der Veranstaltung eintragen (Seminar, Proseminar, Praktikum)
+\eventtype{Praktikum} 
+%\eventtype{Seminar} 
+%\eventtype{Proseminar}
+ 
+% Hier Titel der Veranstaltung eintragen 
+\seminartitle{Forschungsprojekt: Anthropomatik praktisch erfahren}
+
+\title{Klassifikation von Schüttgutpartikeln basierend auf Beobachtungen des Bewegungsverhaltens}
+\author{Sebastian Bayer, Jonathan Bechtle,\\ Benno Ommerborn, Julian Schuh}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+In Rahmen dieses Praktikums soll ein flexibler Klassifikator erstellt werden, der Teilchen abhängig von ihrem Bewegungsverlauf zu einer der vorgegebenen Klassen zuordnet. Hierfür werden Trainingsdaten der Bewegung realer Schüttgutteilchen zur Verfügung gestellt. Teilchen unterschiedlichen sich hierbei nicht nur durch ihres auf dem Band zurückgelegten Pfades, sondern auch hinsichtlich der Geschwindigkeit in Bandrichtung und orthogonal zur Bandrichtung.
+\end{abstract}
+\clearpage
+\tableofcontents
+\cleardoublepage
+
+\subfile{sections/introduction}
+\subfile{sections/methods}
+\subfile{sections/results}
+\subfile{sections/conclusion}
+
+\bibliography{literatur}
+\bibliographystyle{plain}
+
+\end{document}
