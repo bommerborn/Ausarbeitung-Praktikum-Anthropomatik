@@ -1,12 +1,15 @@
 \section{Implementierung}
 
-\fbox{\parbox{\textwidth}{
-\noindent\textbf{Inhalt}
-\begin{itemize}
-    \item Struktur
-    \item Schnittstellen
-    \item Nutzeroberfläche
-\end{itemize}
-}}
+\subsection{Übersicht}
+Die Implementierung der Anwendung wurde in MATLAB durchgeführt. Die Struktur dieser wurde möglichst einfach und zweckdienlich gehalten. Die Anwendung besteht aus vier Teilen, welche in den folgenden Abschnitten detaillierter beschrieben werden: Features, Parsers, Classificators sowie der Anwendungslogik, welche den Prozess anstößt (Evaluation). Für Features, Parsers und Classificators wurde ein Interface definiert, welches einen einfachen Austausch verschiedener Bestandteile sowie die Erweiterung der Funktionalität der Anwendung ermöglichen soll. \\
+So erlaubt die Anwendung, neue Features mit geringem Aufwand zu implementieren und anschließend in Kombination mit anderen Features zu evaluieren. Auch die Erweiterung um neue Klassifikationsverfahren ist auf ähnliche Weise mit geringem Aufwand möglich. Mit Hilfe des Parser-Interfaces kann die Applikation auf eine andere Datenquelle umgestellt werden, indem eine Parser-Klasse für das vorliegende Datenformat implementiert und in der Anwendung ersetzt wird. Die Anwendungslogik sieht verschiedene Einstiegspunkte vor, welche z.B. für den Vergleich mehrerer Klassifikationsverfahren auf den gleichen Daten oder die Bewertung verschiedener Features vorgesehen sind. \\
+Alles in allem stellt die Codebasis alle Werkzeuge zur Verfügung, um Features und Klassifikationsverfahren für den Anwendungsfall Schüttgutklassifikaton durch Bewegungsprofile zu evaluieren. Die große Anzahl bereits implementierter Features (Kapitel \ref{Features}) sowie Klassifikationsverfahren (Kapitel \ref{Klassifikatoren}) gibt dazu einen guten Startpunkt und konnte bereits mit großem Erfolg für die Klassifikation von Schüttgut angewendet werden (Kapitel \ref{eval}).
 
-bla bla
+% \fbox{\parbox{\textwidth}{
+% \noindent\textbf{Inhalt}
+% \begin{itemize}
+%     \item Struktur
+%     \item Schnittstellen
+%     \item Nutzeroberfläche
+% \end{itemize}
+% }}

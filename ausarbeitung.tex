@@ -1,9 +1,14 @@
 \documentclass[cover]{isas-seminar}
 
-\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{subcaption}
 \usepackage{booktabs}
 \usepackage{subfiles}
 \usepackage{graphicx}
+\usepackage[numbered,framed]{matlab-prettifier}
+\usepackage{filecontents}
+\usepackage{url}
+\usepackage{float}
 
 % Hier die Art der Veranstaltung eintragen (Seminar, Proseminar, Praktikum)
 \eventtype{Praktikum} 
@@ -20,7 +25,7 @@
 \maketitle
 
 \begin{abstract}
-In Rahmen dieses Praktikums soll ein flexibler Klassifikator erstellt werden, der Teilchen abhängig von ihrem Bewegungsverlauf zu einer der vorgegebenen Klassen zuordnet. Hierfür werden Trainingsdaten der Bewegung realer Schüttgutteilchen zur Verfügung gestellt. Teilchen unterschiedlichen sich hierbei nicht nur durch ihres auf dem Band zurückgelegten Pfades, sondern auch hinsichtlich der Geschwindigkeit in Bandrichtung und orthogonal zur Bandrichtung.
+In Rahmen dieses Praktikums wurde ein flexibler Klassifikator umgesetzt, welcher Schüttgutpartikel verschiedener Schüttgutarten mit hoher Genauigkeit trennt. Für die Klassifikationsentscheidung wurde lediglich auf die Bewegungsprofile der Partikel zurückgegriffen, auf die Verwendung optischer Merkmale wurde verzichtet. Zur Implementierung und Evaluierung des entwickelten Klassifikators wurde auf Testdaten aus zwei Quellen zurückgegriffen: Einer realistischen Simulation \cite{DEM2016} sowie Daten, die mit Hilfe des TableSort-Demonstrators \cite{TableSort} erfasst wurden. Zur Extraktion relevanter Merkmale der Bewegungsprofile wurde eine Vielzahl verschiedener Features implementiert. Eine erweiterbare und flexible Softwarearchitektur macht die Anwendung zu einer optimalen Basis für weitere Forschung. Die abschließende Evaluation zeigt, dass mit den vorliegenden Daten und bei Auswahl der besten Klassifikationsverfahren und Features eine Genauigkeit von über 94\% erreicht werden kann.
 \end{abstract}
 \clearpage
 \tableofcontents
@@ -28,15 +33,13 @@ In Rahmen dieses Praktikums soll ein flexibler Klassifikator erstellt werden, de
 
 \subfile{sections/introduction}
 \subfile{sections/setup}
-\clearpage
 \subfile{sections/classifiers}
-\clearpage
 \subfile{sections/implementation}
 \subfile{sections/features}
 \subfile{sections/results}
 \subfile{sections/conclusion}
 
 \bibliography{literatur}
-\bibliographystyle{plain}
+\bibliographystyle{ieeetr}
 
 \end{document}

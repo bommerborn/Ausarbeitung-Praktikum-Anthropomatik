@@ -1,33 +1,45 @@
-\section{Features}
+\section{Features} \label{Features}
+In diesem Kapitel wird beschrieben wie aus den Inputdaten der Flächenkamera Merkmale, die sogenannten Features, extrahiert werden, um damit maschinelle Lernverfahren zu trainieren und eine Klassifikation zu ermöglichen. Es wurden insgesamt mehr als 30 verschiedene Feature Extraktionen entwickelt, die sich in die folgenden vier Kategorien einordnen lassen:
+
 
 \subsection{Physikalische Größen}
-Beschleunigung in X- und Y-Richtung zum Fließband.
+Wichtig für die Klassifizierung der Schüttgut-Partikel sind Unterschiede in den physikalischen Eigenschaften der Objekten. Denn diese Eigenschaften definieren das Verhalten auf dem Fließband. Verschiedene Kräfte, wie zum Beispiel die Beschleunigung, des Fließbandes wirken auf die Objekte und diese konvergieren dann langsam oder schnell mit der Bandbewegung.
 
-Geschwindigkeit in X- und Y-Richtung zum Fließband.
+So weicht die Bewegung von Kugeln und Zylindern stark von der Bandbewegung ab, da diese Objekte eine hohe Eigenbewegung aufweisen. Bei einem längeren Fließband konvergiert die Eigenbewegung der Objekte daher nur langsam mit der Bandbewegung.  
 
-X und Y Position auf dem Fließband.
+Quader hingegen bleiben auf dem Fließband liegen und konvergieren daher schnell mit der Bandbewegung. 
 
-Die Geschwindigkeit \( v = \frac{s}{t} \) und die Beschleunigung \( \Delta a = \frac{\Delta v}{\Delta t} \)
-sind wichtige Merkmale. 
+Somit sind Beschleunigung und Geschwindigkeit der Objekte in X- und Y-Richtung zum Fließband grundlegende Features. Die Geschwindigkeit \( v = \frac{s}{t} \) und die Beschleunigung \( \Delta a = \frac{\Delta v}{\Delta t} \) geben wichtige physikalische Eigenschaften an. 
 
-physikalische Eigenschaft Testobjekten -> Verhalten auf dem Band
 
-Zylinder haben eine hohe Eigenbewegung. Somit weicht die Bewegung solcher Objekte stark von der Bandbewegung ab. Bei einem längeren Fließband konvergiert die Eigenbewegung der Objekte langsam mit der Bandbewegung. 
 
-Quader bleiben auf dem Fließband liegen da die Objektbewegung langsam konvergiert. 
-
-Kugeln erreichen das Ende des Bandes, das sich in die gleiche Richtung wie das Band bewegt. 
-
-Die Beschleunigung wirkt auf die Objekte
 
 \subsection{Einzelne Features}
-Physikalische Größen am Anfang und am Ende des Fließbandes.
+Wenn diese physikalischen Größen im Zusammenhang mit der X- und Y-Position des Objektes auf dem Fließband betrachtet werden ergeben sich die ersten aussagekräftigen Features. So sind die physikalische Größen vor allem am Anfang und am Ende des Fließbandes interessant.
 
+DiffPositionY
+
+VelocitiesAfterPosition
+
+AccelerationsAfterPosition
 
 
 
 
 \subsection{Statistische Features}
-Durchschnittswert der Beschleunigung, der Beschleunigungsänderung,  
+Im nächsten Schritt können mithilfe von statistischen Mitteln weitere Features generiert werden. Mithilfe von Durchschnittswerten von der Beschleunigung, der Beschleunigungsänderung, der Geschwindigkeit können Verfälschung durch Ausreißer in den Daten verringert werden. Die Summe des Absolutbetrages von Position, Beschleunigung, Beschleunigungsänderung sind...
 
-Summe des Absolutbetrages von Position, Beschleunigung, Beschleunigungsänderung
+Das Minimum, sowie das Maximum der physikalischen Größen...
+
+VarAcceleration (TODO SB)
+
+VarJerk (TODO SB)
+
+
+
+
+
+\subsection{Komplexe Features}
+
+AccelerationByVelocity (TODO SB)
+

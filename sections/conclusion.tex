@@ -1,4 +1,9 @@
 \section{Zusammenfassung}
+In dieser Arbeit wurden verschiedene Klassifikatoren entwickelt, um eine automatische Trennung von Schüttgut zu ermöglichen. Dazu wird mithilfe einer Flächenkamera automatisch ein Schüttgut-Partikel abhängig von seinem Bewegungsverlauf klassifiziert. Die Klassifikation erreicht bei allen Testdaten, außer bei der Unterscheidung von Quadern und Zylindern, eine Erkennungsrate von mehr als 99,9\%. Die Erkennungsrate von Quadern und Zylindern konnte auf über 91\% gesteigert werden. 
+
+Der Klassifikator benötigt dazu nur wenige Realdaten und keine optischen Merkmalen, sondern ausschließlich Daten aus dem Bewegungsverlauf. Die spätere Umsetzung des Klassifkators wird in Echtzeit möglich sein. Das Erlernen einer akkuraten Klassifikation eines neuen bzw. unbekannten Schüttguts ist ebenfalls schnell und einfach möglich. 
 
 \subsection{Offene Probleme}
-bla bla
+Im nächsten Schritt sollten die Klassifikatoren praxisnah auf massenhaft Realdaten getestet werden. Denn bisher konnten die Klassifikatoren nur auf einem Minimum an Realdaten angewendet werden, sodass keine weitreichenden Aussagen getroffen werden können. Dabei spielt die Messungenauigkeit bei jedem einzelnen Schüttgut-Partikel die größte Rolle. Auch wenn die Lernverfahren der Boosted Decisiontrees gegenüber eines solchen Rauschen stabil sein sollten, kann man in dieser Hinsicht  bisher keine festen Zusagen machen. 
+
+Ein weitere Möglichkeit, die Stabilität der Klassifikation zu steigern, wäre der Einsatz von Deep Learning Verfahren bei neuronalen Netzen, die jedoch die 10-fache Menge an bisher verwendeten Trainingsdatendaten benötigen. Denn auch die simulierten Testdaten waren durch ihre aufwendige Generierung in der Menge beschränkt.  

@@ -1,5 +1,7 @@
+% Diese Arbeit beschäftigt sich mit der automatischen Trennung von Schüttgutpartikel.
+
 \section{Einleitung}
-Diese Arbeit beschäftigt sich mit der automatischen Trennung von Schüttgutpartikel. Der Begriff Schüttgut bezeichnet hierbei ein körniges oder auch stückiges Gemenge, dass in einer schüttfähigen Form vorliegt (Wiki). Die Abbildung \ref{fig:Schuettgut} zeigt Schüttgut in unterschiedlicher Größe. In der Industrie werden heutzutage Schüttgüter maschinell auf Mängel geprüft und auch Schüttgüter mit unterschiedlichen Güteklassen maschinell getrennt. Anwendungsgebiete sind vor allem in der Essensindustrie, beim Recycling, dem Bergbau usw.. Im Vergleich zur Sortierung per Hand, welche subjektiv und unbeständig ist, hilft die maschinelle Sortierung die Produktqualität und den Durchsatz zu erhöhen, während Kosten reduziert werden \cite{FoodQuality}. 
+Diese Arbeit beschäftigt sich mit der Klassifikation von Schüttgutpartikeln auf Basis von Bewegungsprofilen. Der Begriff Schüttgut bezeichnet hierbei ein körniges oder auch stückiges Gemenge, das in einer schüttfähigen Form vorliegt \cite{SchuettgutDef}. Abbildung \ref{fig:Schuettgut} zeigt Schüttgut in unterschiedlicher Größe. In der Industrie werden Schüttgüter heutzutage maschinell auf Mängel geprüft und automatisch nach Güteklassen getrennt, was die vorherige Klassifikation dieser voraussetzt. Anwendungsgebiete sind vor allem in der Lebensmittelindustrie, beim Recycling oder im Bergbau zu finden. Im Vergleich zur Sortierung per Hand, welche subjektiv und unbeständig ist, hilft die maschinelle Sortierung bei der Erhöhung von Produktqualität und Durchsatz, während Kosten reduziert werden \cite{FoodQuality}.
 
 \begin{figure}[!h]
     \centering
@@ -9,9 +11,9 @@ Diese Arbeit beschäftigt sich mit der automatischen Trennung von Schüttgutpart
 \end{figure}
 
 \subsection{Der sensorbasierte Sortierprozess}
-Der sensorbasierte Sortierprozess läuft im Allgemeinen wie in Abbildung \ref{fig:Aufbau} ab. Es wird Schüttgut portionsweise an den Anfang eines Fließbandes gestreut. Das Fließband mit beliebiger Länge beschleunigt die Partikel. Ein Sensor misst die Schüttgutpartikel auf dem Fließband. Aufgrund dieser Messung werden die Partikel am Ende des Fließbandes in bestimmte Behälter geleitet und so voneinander getrennt. 
+Der sensorbasierte Sortierprozess läuft im Allgemeinen wie in Abbildung \ref{fig:Aufbau} illustriert ab. Schüttgut wird portionsweise an den Anfang eines Fließbandes gestreut und anschließend von diesem beschleunigt. Ein Sensor erfasst relevante Eigenschaften der Schüttgutpartikel auf dem Fließband. Auf Basis dieser Messung werden die Partikel am Ende des Fließbandes in bestimmte Behälter geleitet und so voneinander getrennt.
 
-Ein solcher Sensor kann beispielsweise eine Zeilenkamera oder eine Flächenkamera sein. Die Analyse jedes Partikels durch eine Zeilenkamera beschränkt sich dabei nur auf wenige Bildern. Dadurch ist eine Bewegungsanalyse nicht möglich. Durch geschickte Beleuchtung kann jedoch anhand von optischen Merkmalen eine Klassifikation ermöglicht werden. Mithilfe einer Flächenkamera kann hingegen ein Bewegungsverlauf aufgezeichnet und analysiert werden. Partikel unterscheiden sich hierbei nicht nur durch ihren auf dem Band zurückgelegten Pfad, sondern auch hinsichtlich der Geschwindigkeit in Bandrichtung und orthogonal zur Bandrichtung.
+Bei einem solchen Sensor kann es sich beispielsweise um eine Zeilen- oder Flächenkamera handeln. Die Analyse jedes Partikels durch eine Zeilenkamera beschränkt sich dabei nur auf wenige Bilder. Dadurch ist eine Bewegungsanalyse nicht möglich. Durch geschickte Beleuchtung kann jedoch anhand optischer Merkmale der Partikel eine Klassifikation durchgeführt werden. Mithilfe einer Flächenkamera kann hingegen ein Bewegungsprofil jedes Partikels erfasst und analysiert werden. Partikel unterscheiden sich hierbei nicht nur durch ihren auf dem Band zurückgelegten Pfad, sondern auch hinsichtlich der Geschwindigkeit und Beschleunigungen zu verschiedenen relativen Zeitpunkten.
 
 \begin{figure}[!h]
     \centering
@@ -21,16 +23,18 @@ Ein solcher Sensor kann beispielsweise eine Zeilenkamera oder eine Flächenkamer
 \end{figure}
 
 \subsection{Motivation}
-Das Ziel dieser Arbeit ist es mithilfe einer Flächenkamera automatisch ein Schüttgut-Partikel abhängig von seinem Bewegungsverlauf zu klassifizieren. Das Erlernen einer akkuraten Klassifikation eines neuen bzw. unbekannten Schüttguts soll dabei schnell und einfach möglich sein. 
+\label{sec:Motivation}
+% Das Ziel dieser Arbeit ist es mithilfe einer Flächenkamera automatisch ein Schüttgut-Partikel abhängig von seinem Bewegungsverlauf zu klassifizieren.
+Das Ziel dieser Arbeit ist die Klassifikation von Schüttgutpartikeln auf Basis von Bewegungsprofilen, welche aus den Daten einer Flächenkamera gewonnen werden. Das Erlernen einer akkuraten Klassifikation eines neuen bzw. unbekannten Schüttguts soll dabei schnell und einfach möglich sein.
 
 \subsection{Bisherige Arbeiten}
-In der Arbeit (MA-Thesis) wurde gezeigt, dass auf Basis von Bewegungsmustern eine einfache Klassifikation von Objekten durchgeführt werden kann. Als Testdaten wurden dazu mehrere Objektarten verwendet, die drei Oberklassen zugeordnet werden können. Mithilfe eines naiven Bayes Klassifikator sollten die verschiedenen Objektarten einer der drei Oberklassen zugeordnet werden.
+In der Arbeit \cite{MA} wurde gezeigt, dass auf Basis von Bewegungsprofilen eine Klassifikation von Objekten möglich ist. Als Testdaten wurden dazu mehrere Objektarten verwendet, welche drei Oberklassen zugeordnet werden können. Mithilfe eines naiven Bayes Klassifikators wurden die verschiedenen Objektarten automatisch einer der drei Oberklassen zugeordnet.
 
-Da die Testdaten pro Objektart aber nur aus 52 Objekten bestanden, konnte kein repräsentative Likelihood Funktion umgesetzt werden (MA S.24). Außerdem wurde festgestellt, dass manche Objektarten sich sehr ähnlich verhalten. Unter der Berücksichtigung der genannten Einschränkungen konnten im Durchschnitt in 90\% der Fälle die Objekte der richtigen Oberklasse zugeordnet werden (MA S.24). Die Arbeit kommt zum Schluss, dass durch mehr Testdaten und Features ein besseres Klssifikationsergebnis erreicht werden kann.
+Da die Testdaten pro Objektart aus lediglich 52 Objekten bestehen, konnte keine repräsentative Likelihood-Funktion umgesetzt werden \cite[S. 24]{MA}. Außerdem wurde festgestellt, dass manche Objektarten ein sehr ähnliches Bewegungsverhalten aufweisen. Unter der Berücksichtigung der genannten Einschränkungen konnte in durchschnittlich 90\% der Fällen eine korrekte Zuordnung der Objekte zur Oberklasse erreicht werden \cite[S. 24]{MA}. Die Arbeit kommt zum Schluss, dass durch die Verwendung größerer Testdatenmengen und Features ein besseres Klassifikationsergebnis erreicht werden kann.
 
 \subsection{Zielsetzungen}
-Es soll eine akkurate Klassifikation von mehr als 90\% bei allen Schüttgutarten gewährleistet sein. Dabei soll der Klassifikator nicht nur zwischen Oberklassen, sondern zwischen Basisklassen unterscheiden und wird damit weit über die Ergebnisse des MA-Thesis hinaus gehen. Der Klassifikator soll dazu möglichst wenige Realdaten benötigen und keine optischen Merkmalen, sondern ausschließlich Daten aus dem Bewegungsverlaufs verwenden. Die spätere Umsetzung des Klassifkators soll durch Optimierung der Anlagenparameter 
-außerdem in Echtzeit möglich sein. 
+\label{sec:Goal}
+Es soll ein Klassifikator entwickelt werden, welcher Schüttgutpartikel verschiedener Schüttgutarten mit einer Genauigkeit von mehr als 90\% trennt. Dabei soll der Klassifikator nicht nur (wie in \cite{MA} umgesetzt) zwischen Oberklassen, sondern auch zwischen Basisklassen unterscheiden können. Der Klassifikator soll dazu möglichst wenige Realdaten benötigen und keine optischen Merkmalen, sondern ausschließlich Daten aus dem Bewegungsprofil für seine Entscheidung nutzen. Die spätere Umsetzung des Klassifikators soll durch die Optimierung der Anlagenparameter außerdem eine Klassifikation in Echtzeit ermöglichen.
 
 
 
